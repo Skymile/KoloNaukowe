@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace RealTimeCharts
+namespace RealTimeCharts.Support
 {
 	public class Command : ICommand
 	{
@@ -10,6 +10,7 @@ namespace RealTimeCharts
 		public void Execute(object parameter) => this.action();
 
 		public bool CanExecute(object parameter) => true;
+
 		public event EventHandler CanExecuteChanged;
 
 		private readonly Action action;

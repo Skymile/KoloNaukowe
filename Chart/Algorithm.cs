@@ -7,7 +7,7 @@ namespace RealTimeCharts.Chart
 {
 	public static class Algorithm
 	{
-		public unsafe static Bitmap Chart(
+		public static unsafe Bitmap Chart(
 				int sampling,
 				double slider,
 				double amplitude,
@@ -21,8 +21,7 @@ namespace RealTimeCharts.Chart
 			amplitude /= 1000;
 			slider /= 1000;
 
-			var bmp = new Bitmap(256, 256);
-			var data = bmp.LockBits(
+			BitmapData data = bmp.LockBits(
 				new Rectangle(0, 0, bmp.Width, bmp.Height),
 				ImageLockMode.WriteOnly,
 				PixelFormat.Format24bppRgb
@@ -65,6 +64,6 @@ namespace RealTimeCharts.Chart
 			return bmp;
 		}
 
-		//private static readonly Bitmap bmp = new(255, 255, PixelFormat.Format24bppRgb);
+		private static readonly Bitmap bmp = new(256, 256);
 	}
 }

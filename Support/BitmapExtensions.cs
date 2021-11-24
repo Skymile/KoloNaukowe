@@ -2,13 +2,13 @@
 using System.Drawing.Imaging;
 using System.Windows.Media.Imaging;
 
-namespace RealTimeCharts
+namespace RealTimeCharts.Support
 {
 	public static class BitmapExtensions
 	{
 		public static BitmapSource ToBitmapSource(this Bitmap bmp)
 		{
-			var data = bmp.LockBits(
+			BitmapData data = bmp.LockBits(
 				new Rectangle(Point.Empty, bmp.Size),
 				ImageLockMode.ReadWrite,
 				PixelFormat.Format24bppRgb
