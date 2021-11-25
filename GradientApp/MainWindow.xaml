@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:GradientApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -13,43 +12,62 @@
         </Grid.ColumnDefinitions>
 
         <Image Name="MainImage"/>
-        <StackPanel Grid.Column="1">
+
+        <StackPanel Grid.Column="1" Margin="15">
             <Slider
                 Name="MainSliderR1"
                 Minimum="0"
+                Value="200"
                 Maximum="255"
                 IsSnapToTickEnabled="True"
-                ValueChanged="Slider_ValueChanged" />
+                ValueChanged="Slider_ValueChanged"
+                Template="{StaticResource RedSlider}"
+                >
+            </Slider>
             <Slider
                 Name="MainSliderG1"
                 Minimum="0"
                 Maximum="255"
                 IsSnapToTickEnabled="True"
-                ValueChanged="Slider_ValueChanged" />
+                ValueChanged="Slider_ValueChanged"
+                Template="{StaticResource GreenSlider}"
+                />
             <Slider
                 Name="MainSliderB1"
                 Minimum="0"
                 Maximum="255"
                 IsSnapToTickEnabled="True"
-                ValueChanged="Slider_ValueChanged" />
+                ValueChanged="Slider_ValueChanged"
+                Template="{StaticResource BlueSlider}"
+                />
+
+            <Separator Height="40"/>
+
             <Slider
                 Name="MainSliderR2"
                 Minimum="0"
                 Maximum="255"
                 IsSnapToTickEnabled="True"
-                ValueChanged="Slider_ValueChanged" />
+                ValueChanged="Slider_ValueChanged"
+                Template="{StaticResource RedSlider}"
+                />
             <Slider
                 Name="MainSliderG2"
                 Minimum="0"
                 Maximum="255"
+                Value="255"
                 IsSnapToTickEnabled="True"
-                ValueChanged="Slider_ValueChanged" />
+                ValueChanged="Slider_ValueChanged"
+                Template="{StaticResource GreenSlider}"
+                />
             <Slider
                 Name="MainSliderB2"
                 Minimum="0"
                 Maximum="255"
                 IsSnapToTickEnabled="True"
-                ValueChanged="Slider_ValueChanged" />
+                ValueChanged="Slider_ValueChanged"
+                Template="{StaticResource BlueSlider}"
+                />
         </StackPanel>
     </Grid>
 </Window>
