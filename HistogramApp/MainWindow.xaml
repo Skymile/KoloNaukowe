@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Image Name="MainImage"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Image Grid.Column="0" Name="MainImage"/>
+        <Image Grid.Column="1" Name="EqualizedImage"/>
+
+        <Image Grid.Column="0" Grid.Row="1" Name="HistMainImage"/>
+        <Image Grid.Column="1" Grid.Row="1" Name="HistEqualizedImage"/>
     </Grid>
 </Window>
