@@ -11,25 +11,18 @@
     </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Image Source="{Binding MainSource.Value}" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+
+        <Grid Margin="15" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#AFFFFFFF">
+            <Label Content="{Binding CurrentFormula.Value}" FontSize="32" FontFamily="Consolas"/>
+        </Grid>
+
         <ScrollViewer Grid.Column="1">
             <StackPanel>
-                <Label Content="{Binding TestContent.Value}"/>
-                <Button Content="Binding Test!" Command="{Binding ButtonClick}"
-                    Background="{Binding RectangleColor.Value}">
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="10"/>
-                        </Style>
-                    </Button.Resources>
-                </Button>
-
-                <Separator/>
-
                 <Border Style="{StaticResource ParameterBorder}">
                     <StackPanel Orientation="Vertical">
                         <Slider Value="{Binding SliderSampling.Value}"
@@ -98,6 +91,7 @@
                         Width="255"/>
                     <Rectangle Fill="Blue"/>
                 </StackPanel>
+                <ListView ItemsSource="{Binding AllFormulaOptions}" SelectedItem="{Binding CurrentFormula.Value}"/>
             </StackPanel>
         </ScrollViewer>
     </Grid>

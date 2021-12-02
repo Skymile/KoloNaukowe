@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HistogramApp"
+        xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -16,10 +17,16 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Image Grid.Column="0" Name="MainImage"/>
-        <Image Grid.Column="1" Name="EqualizedImage"/>
+        <!--<Image Grid.Row="1" Grid.Column="0" Name="MainImage"/>
+        <Image Grid.Row="1" Grid.Column="1" Name="EqualizedImage"/>-->
+
+        <lvc:CartesianChart Grid.Row="0" Grid.Column="0" Series="{Binding MainSeries}"
+
+                            />
+        <lvc:CartesianChart Grid.Row="0" Grid.Column="1" Series="{Binding EqualizedSeries}" />
 
         <Image Grid.Column="0" Grid.Row="1" Name="HistMainImage"/>
         <Image Grid.Column="1" Grid.Row="1" Name="HistEqualizedImage"/>
+
     </Grid>
 </Window>

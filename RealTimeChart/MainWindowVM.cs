@@ -1,4 +1,7 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -12,8 +15,6 @@ namespace RealTimeCharts
 		public MainWindowVM()
 		{
 			this.MainSource = new(default);
-			this.TestContent = new("Test bindingu!");
-			this.ButtonClick = new Command(() => this.TestContent.Value += "!");
 
 			this.SliderSampling.PropertyChanged += SliderValue_PropertyChanged;
 			this.SliderFreq.PropertyChanged += SliderValue_PropertyChanged;
@@ -23,6 +24,8 @@ namespace RealTimeCharts
 			this.SliderR.PropertyChanged += SliderValue_PropertyChanged;
 			this.SliderG.PropertyChanged += SliderValue_PropertyChanged;
 			this.SliderB.PropertyChanged += SliderValue_PropertyChanged;
+
+			this.CurrentFormula.PropertyChanged += SliderValue_PropertyChanged;
 
 			SliderValue_PropertyChanged(this, null);
 		}
@@ -43,9 +46,15 @@ namespace RealTimeCharts
 
 				(byte)this.SliderR.Value,
 				(byte)this.SliderG.Value,
-				(byte)this.SliderB.Value
+				(byte)this.SliderB.Value,
+
+				this.CurrentFormula.Value
 			).ToBitmapSource();
 		}
+
+		public Property<Formula> CurrentFormula { get; } = new Property<Formula>(Formula.Sin);
+		public List<Formula> AllFormulaOptions { get; } =
+			Enum.GetValues<Formula>().ToList();
 
 		public Property<Brush> RectangleColor { get; } = new(Brushes.Cyan);
 
