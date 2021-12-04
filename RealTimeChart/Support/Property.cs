@@ -5,10 +5,8 @@ namespace RealTimeCharts
 {
 	public class Property<T> : INotifyPropertyChanged
 	{
-		public Property(T value = default)
-		{
+		public Property(T value = default) =>
 			this.field = value;
-		}
 
 		public T Value { get => this.field; set => SetValue(ref this.field, value); }
 

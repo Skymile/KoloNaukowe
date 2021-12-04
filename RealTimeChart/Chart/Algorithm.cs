@@ -8,6 +8,8 @@ namespace RealTimeCharts.Chart
 	public enum Formula
 	{
 		Sin,
+		SinTimesHalfSin,
+		SinPlusHalfSin,
 		Cos,
 		Sinc,
 		Rectangular,
@@ -20,18 +22,20 @@ namespace RealTimeCharts.Chart
 	{
 		public unsafe static Bitmap Chart(
 				int sampling,
-				double slider,
+				double frequency,
 				double amplitude,
 				double offset,
+				double noise,
 				byte r,
 				byte g,
 				byte b,
 				Formula formulaType
 			)
 		{
-			offset = (offset - 5000) / 10;
-			amplitude /= 1000;
-			slider /= 1000;
+			offset = (offset - 3500) / 20;
+			amplitude /= 2000;
+			frequency /= 1000;
+			noise /= 4000;
 
 			var bmp = new Bitmap(320, 256);
 			var data = bmp.LockBits(
@@ -52,14 +56,20 @@ namespace RealTimeCharts.Chart
 
 			var random = new Random();
 			Func<double, double> sawTooth =
-				x => 2 * (x / slider / 100 - Math.Floor(0.5 + x / slider / 100));
+				x => 2 * (x / frequency / 100 - Math.Floor(0.5 + x / frequency / 100));
 
 			Func<double, double> formula = formulaType switch
 			{
-				Formula.Sin         => x => Math.Sin(x * Math.PI / 180 * slider),
-				Formula.Cos         => x => Math.Cos(x * Math.PI / 180 * slider),
-				Formula.Sinc        => x => Math.Sin(x * Math.PI / 180 * slider) / x,
-				Formula.Rectangular => x => Math.Sin(x * Math.PI / 180 * slider) > 0 ? 1 : -1,
+				Formula.Sin         => x => Math.Sin(x * Math.PI / 180 * frequency),
+				Formula.SinTimesHalfSin => x =>
+					Math.Sin(x * Math.PI / 180 * frequency) *
+					Math.Sin(x * Math.PI / 360 * frequency),
+				Formula.SinPlusHalfSin => x =>
+					Math.Sin(x * Math.PI / 180 * frequency) +
+					Math.Sin(x * Math.PI / 360 * frequency),
+				Formula.Cos         => x => Math.Cos(x * Math.PI / 180 * frequency),
+				Formula.Sinc        => x => Math.Sin(x * Math.PI / 180 * frequency) / x,
+				Formula.Rectangular => x => Math.Sin(x * Math.PI / 180 * frequency) > 0 ? 1 : -1,
 				Formula.Sawtooth    => sawTooth,
 				Formula.Triangular  => x => 2 * Math.Abs(sawTooth(x)) - 1,
 				Formula.Noise       => x => random.NextDouble() * 2 - 1,
@@ -68,7 +78,7 @@ namespace RealTimeCharts.Chart
 
 			for (int x = 1; x <= bmp.Width; x += sampling)
 			{
-				double func = formula(x);
+				double func = formula(x) + (random.NextDouble() - 0.5) * noise;
 
 				int h = Math.Clamp(
 					(int)((func + 1) / 2 * bmp.Height * amplitude + offset),
@@ -92,7 +102,5 @@ namespace RealTimeCharts.Chart
 			bmp.UnlockBits(data);
 			return bmp;
 		}
-
-		//private static readonly Bitmap bmp = new(255, 255, PixelFormat.Format24bppRgb);
 	}
 }
