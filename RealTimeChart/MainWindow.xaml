@@ -15,9 +15,66 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Image Source="{Binding MainSource.Value}" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0" Grid.Column="1"
+                Source="{Binding MainSource.Value}"
+                RenderOptions.BitmapScalingMode="NearestNeighbor"
+                Stretch="Fill"/>
 
-        <Grid Margin="15" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#AFFFFFFF">
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Margin="0" VerticalAlignment="Top" Content="0π" HorizontalAlignment="Left"/>
+                    <Label Grid.Column="1" Margin="0" VerticalAlignment="Top" Content="{Binding AxisX2.Value}" HorizontalAlignment="Center"/>
+                    <Label Grid.Column="2" Margin="0" VerticalAlignment="Top" Content="{Binding AxisX4.Value}" HorizontalAlignment="Right"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Margin="0" VerticalAlignment="Top" Content="{Binding AxisX1.Value}" HorizontalAlignment="Center"/>
+                    <Label Grid.Column="1" Margin="0" VerticalAlignment="Top" Content="{Binding AxisX3.Value}" HorizontalAlignment="Center"/>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Margin="0" HorizontalAlignment="Right" Content="1" VerticalAlignment="Top"/>
+                    <Label Grid.Row="1" Margin="0" HorizontalAlignment="Right" Content="0" VerticalAlignment="Center"/>
+                    <Label Grid.Row="2" Margin="0" HorizontalAlignment="Right" Content="-1" VerticalAlignment="Bottom"/>
+                </Grid>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Margin="0" HorizontalAlignment="Right" Content="0.5" VerticalAlignment="Center"/>
+                    <Label Grid.Row="1" Margin="0" HorizontalAlignment="Right" Content="-0.5" VerticalAlignment="Center"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid Margin="35 15" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#AFFFFFFF">
             <Label Content="{Binding CurrentFormula.Value}" FontSize="32" FontFamily="Consolas"/>
         </Grid>
 
@@ -35,24 +92,24 @@
                     </StackPanel>
                 </Border>
                 <Border Style="{StaticResource ParameterBorder}">
-                        <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Vertical">
                         <Slider Value="{Binding SliderFreq.Value}"
-                            Minimum="1" Maximum="10000"/>
+                            Minimum="1" Maximum="10000" TickPlacement="None"/>
                         <Label Content="Frequency [1; 10 000]"/>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Bieżąca częstotliwość: "/>
-                            <Label Content="{Binding SliderFreq.Value}"/>
+                            <Label Content="{Binding SliderFreqNormalized.Value}"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>
                 <Border Style="{StaticResource ParameterBorder}">
                     <StackPanel Orientation="Vertical">
                         <Slider Value="{Binding SliderAmpl.Value}"
-                            Minimum="1" Maximum="10000"/>
+                            Minimum="1" Maximum="10000" TickPlacement="None"/>
                         <Label Content="Amplitude [1; 10 000]"/>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Bieżąca amplituda: "/>
-                            <Label Content="{Binding SliderAmpl.Value}"/>
+                            <Label Content="{Binding SliderAmplNormalized.Value}"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>
@@ -63,7 +120,7 @@
                         <Label Content="Offset [1; 10 000]"/>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Bieżące przesunięcie: "/>
-                            <Label Content="{Binding SliderOffset.Value}"/>
+                            <Label Content="{Binding SliderOffsetNormalized.Value}"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>
@@ -78,9 +135,18 @@
                         </StackPanel>
                     </StackPanel>
                 </Border>
-
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="f(x) =" FontFamily="Consolas" Margin="5" Padding="5"/>
+                    <TextBox Grid.Column="1" Margin="5" Padding="5" FontFamily="Consolas" Text="{Binding TextFormula.Value}"
+                             TextChanged="TextBox_TextChanged"
+                             />
+                </Grid>
+                <ListView ItemsSource="{Binding AllFormulaOptions}" SelectedItem="{Binding CurrentFormula.Value}"/>
                 <Separator/>
-
                 <Grid Margin="5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -99,7 +165,6 @@
                     <Slider    Grid.Row="2" Grid.Column="0" Value="{Binding SliderB.Value}" Minimum="0" Maximum="255" Template="{StaticResource BlueSlider}" />
                     <Label     Grid.Row="2" Grid.Column="1" Content="B" Margin="4 0"/>
                 </Grid>
-                <ListView ItemsSource="{Binding AllFormulaOptions}" SelectedItem="{Binding CurrentFormula.Value}"/>
             </StackPanel>
         </ScrollViewer>
     </Grid>

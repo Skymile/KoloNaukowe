@@ -8,6 +8,7 @@ namespace RealTimeCharts.Chart
 	public enum Formula
 	{
 		Sin,
+		SinSquare,
 		SinTimesHalfSin,
 		SinPlusHalfSin,
 		Cos,
@@ -16,6 +17,7 @@ namespace RealTimeCharts.Chart
 		Sawtooth,
 		Triangular,
 		Noise,
+		Custom,
 	}
 
 	public static class Algorithm
@@ -29,7 +31,8 @@ namespace RealTimeCharts.Chart
 				byte r,
 				byte g,
 				byte b,
-				Formula formulaType
+				Formula formulaType,
+				string custom
 			)
 		{
 			offset = (offset - 3500) / 20;
@@ -55,21 +58,24 @@ namespace RealTimeCharts.Chart
 				arr[i] = 255;
 
 			var random = new Random();
-			Func<double, double> sawTooth =
-				x => 2 * (x / frequency / 100 - Math.Floor(0.5 + x / frequency / 100));
+
+			static double sawTooth(double x) =>
+				2 * (x - Math.Floor(0.5 + x));
 
 			Func<double, double> formula = formulaType switch
 			{
-				Formula.Sin         => x => Math.Sin(x * Math.PI / 180 * frequency),
+				Formula.Sin         => x => Math.Sin(x),
+				Formula.Custom      => x => Math.Sin(x * 2), // Placeholder
+				Formula.SinSquare   => x => Math.Sin(x) * Math.Sin(x),
 				Formula.SinTimesHalfSin => x =>
-					Math.Sin(x * Math.PI / 180 * frequency) *
-					Math.Sin(x * Math.PI / 360 * frequency),
+					Math.Sin(x * 2) *
+					Math.Sin(x),
 				Formula.SinPlusHalfSin => x =>
-					Math.Sin(x * Math.PI / 180 * frequency) +
-					Math.Sin(x * Math.PI / 360 * frequency),
-				Formula.Cos         => x => Math.Cos(x * Math.PI / 180 * frequency),
-				Formula.Sinc        => x => Math.Sin(x * Math.PI / 180 * frequency) / x,
-				Formula.Rectangular => x => Math.Sin(x * Math.PI / 180 * frequency) > 0 ? 1 : -1,
+					Math.Sin(x * 2) +
+					Math.Sin(x),
+				Formula.Cos         => x => Math.Cos(x),
+				Formula.Sinc        => x => Math.Sin(x) / x,
+				Formula.Rectangular => x => Math.Sin(x) > 0 ? 1 : -1,
 				Formula.Sawtooth    => sawTooth,
 				Formula.Triangular  => x => 2 * Math.Abs(sawTooth(x)) - 1,
 				Formula.Noise       => x => random.NextDouble() * 2 - 1,
@@ -78,7 +84,9 @@ namespace RealTimeCharts.Chart
 
 			for (int x = 1; x <= bmp.Width; x += sampling)
 			{
-				double func = formula(x) + (random.NextDouble() - 0.5) * noise;
+				double func =
+					formula(x * Math.PI / 360 * frequency) +
+					(random.NextDouble() - 0.5) * noise;
 
 				int h = Math.Clamp(
 					(int)((func + 1) / 2 * bmp.Height * amplitude + offset),
