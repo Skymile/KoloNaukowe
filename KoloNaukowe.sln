@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GradientApp", "GradientApp\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HistogramApp", "HistogramApp\HistogramApp.csproj", "{41657B09-50D7-47C5-A40C-FE1776A56F55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "K3mThinning", "K3mThinning\K3mThinning.csproj", "{9F37A3D1-2660-4226-9FC1-8838006FFED9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "K3mThinning", "K3mThinning\K3mThinning.csproj", "{9F37A3D1-2660-4226-9FC1-8838006FFED9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeystrokeDynamics", "KeystrokeDynamics\KeystrokeDynamics.csproj", "{04F0481D-9869-48E6-9829-84FDD46714C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeystrokeDynamics", "KeystrokeDynamics\KeystrokeDynamics.csproj", "{04F0481D-9869-48E6-9829-84FDD46714C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeystrokeDynamicsTests", "KeystrokeDynamicsTests\KeystrokeDynamicsTests.csproj", "{7AE92FDF-C606-4474-8695-F8A362F32862}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{04F0481D-9869-48E6-9829-84FDD46714C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04F0481D-9869-48E6-9829-84FDD46714C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04F0481D-9869-48E6-9829-84FDD46714C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AE92FDF-C606-4474-8695-F8A362F32862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AE92FDF-C606-4474-8695-F8A362F32862}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AE92FDF-C606-4474-8695-F8A362F32862}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AE92FDF-C606-4474-8695-F8A362F32862}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
