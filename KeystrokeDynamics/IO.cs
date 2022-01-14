@@ -1,9 +1,25 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace KeystrokeDynamics
 {
 	public static class IO
 	{
+		public static IEnumerable<IEnumerable<Keystroke>> ParseDirectory(string directory) =>
+			Directory.Exists(directory)
+				? Directory
+					.GetFiles(directory)
+					.Select(ParseFile)
+				: throw new DirectoryNotFoundException(nameof(directory));
+
+		public static IEnumerable<Keystroke> ParseFile(string file) =>
+			File.Exists(file)
+				? File
+					.ReadLines(file)
+					.Select(ParseLine)
+				: throw new FileNotFoundException(nameof(file));
+
 		public static Keystroke ParseLine(string line) =>
 			ParseArray(line.Split(',').Select(i => i.Trim()).ToArray());
 
