@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "K3mThinning", "K3mThinning\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeystrokeDynamics", "KeystrokeDynamics\KeystrokeDynamics.csproj", "{04F0481D-9869-48E6-9829-84FDD46714C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeystrokeDynamicsTests", "KeystrokeDynamicsTests\KeystrokeDynamicsTests.csproj", "{7AE92FDF-C606-4474-8695-F8A362F32862}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeystrokeDynamicsTests", "KeystrokeDynamicsTests\KeystrokeDynamicsTests.csproj", "{7AE92FDF-C606-4474-8695-F8A362F32862}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CellularAutomata", "CellularAutomata\CellularAutomata.csproj", "{27600F3D-AE3F-4C63-B9D1-7AB47B873C91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{7AE92FDF-C606-4474-8695-F8A362F32862}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AE92FDF-C606-4474-8695-F8A362F32862}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AE92FDF-C606-4474-8695-F8A362F32862}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27600F3D-AE3F-4C63-B9D1-7AB47B873C91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27600F3D-AE3F-4C63-B9D1-7AB47B873C91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27600F3D-AE3F-4C63-B9D1-7AB47B873C91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27600F3D-AE3F-4C63-B9D1-7AB47B873C91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
