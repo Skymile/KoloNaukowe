@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace GeneratorUI
 {
@@ -23,6 +11,25 @@ namespace GeneratorUI
 		public MainWindow()
 		{
 			InitializeComponent();
+
+			var grid = new Grid();
+			var btn0 = new Button() { Content = "Abc 0" };
+			var btn1 = new Button() { Content = "Abc 1" };
+
+			this.Content = grid;
+			// auto - GridLength.Auto
+			// *    -   1, GridUnitType.Star
+			// 200  - 200, GridUnitType.Pixel
+			grid.ColumnDefinitions.Add(
+				new ColumnDefinition() { Width = GridLength.Auto });
+			grid.ColumnDefinitions.Add(
+				new ColumnDefinition() { Width = new GridLength(200, GridUnitType.Pixel) });
+
+			grid.Children.Add(btn0);
+			grid.Children.Add(btn1);
+
+			Grid.SetColumn(btn0, 0);
+			Grid.SetColumn(btn1, 1);
 		}
 	}
 }

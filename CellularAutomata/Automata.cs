@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
+﻿using System.Drawing;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CellularAutomata
 {
@@ -34,11 +29,8 @@ namespace CellularAutomata
 
 			Marshal.Copy(readData.Scan0, r, 0, r.Length);
 
-			for (int i = 0; i < r.Length; i++)
-				w[i] = r[i];
-
-			for (int x = 2; x < readBmp.Width - 1; x++)
-				for (int y = 2; y < readBmp.Height - 1; y++)
+			for (int x = 1; x < readBmp.Width - 1; x++)
+				for (int y = 1; y < readBmp.Height - 1; y++)
 				{
 					int white = 0;
 					for (int i = -1; i <= 1; ++i)
@@ -48,10 +40,25 @@ namespace CellularAutomata
 
 					int index = GetPixel(x, y);
 
-					if (white == 3)
+					// B3/S12345
+					if (r[index] != byte.MaxValue)
+					{ // Czarny środkowy
 						w[index + 0] =
 						w[index + 1] =
-						w[index + 2] = byte.MaxValue;
+						w[index + 2] =
+							white == 3
+								? byte.MaxValue
+								: r[index];
+					}
+					else if (white > 0)
+					{ // Biały środkowy
+						w[index + 0] =
+						w[index + 1] =
+						w[index + 2] =
+							white <= 5
+								? byte.MaxValue
+								: r[index];
+					}
 				}
 
 			Marshal.Copy(w, 0, writeData.Scan0, r.Length);

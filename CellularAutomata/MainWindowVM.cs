@@ -31,13 +31,12 @@ namespace CellularAutomata
 
 			var random = new Random();
 
-			this.bmp.SetPixel(128 + random.Next(-4, 4), 128 + random.Next(-4, 4), System.Drawing.Color.White);
-			this.bmp.SetPixel(128 + random.Next(-4, 4), 128 + random.Next(-4, 4), System.Drawing.Color.White);
-			this.bmp.SetPixel(128 + random.Next(-4, 4), 128 + random.Next(-4, 4), System.Drawing.Color.White);
-			this.bmp.SetPixel(128 + random.Next(-4, 4), 128 + random.Next(-4, 4), System.Drawing.Color.White);
-			this.bmp.SetPixel(128 + random.Next(-4, 4), 128 + random.Next(-4, 4), System.Drawing.Color.White);
-			this.bmp.SetPixel(128 + random.Next(-4, 4), 128 + random.Next(-4, 4), System.Drawing.Color.White);
-			this.bmp.SetPixel(128 + random.Next(-4, 4), 128 + random.Next(-4, 4), System.Drawing.Color.White);
+			for (int i = 0; i < 20; i++)
+				this.bmp.SetPixel(
+					128 + random.Next(-4, 4),
+					128 + random.Next(-4, 4),
+					System.Drawing.Color.White
+				);
 
 			this.MainSource = Automata.Seed(this.bmp).ToSource();
 
