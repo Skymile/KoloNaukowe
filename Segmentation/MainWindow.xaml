@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Image Name="MainImg"/>
+        <Slider Grid.Row="1" Minimum="1" Maximum="255" ValueChanged="Slider_ValueChanged"/>
+        <Button Grid.Row="2" Content="Reset" Click="Reset_Click"/>
     </Grid>
 </Window>
