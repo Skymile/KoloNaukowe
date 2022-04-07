@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31729.503
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTests", "ConsoleTests\ConsoleTests.csproj", "{D9A2CF20-CECA-40EE-8B03-944665558FF8}"
 EndProject
@@ -17,9 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeystrokeDynamics", "Keystr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeystrokeDynamicsTests", "KeystrokeDynamicsTests\KeystrokeDynamicsTests.csproj", "{7AE92FDF-C606-4474-8695-F8A362F32862}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CellularAutomata", "CellularAutomata\CellularAutomata.csproj", "{27600F3D-AE3F-4C63-B9D1-7AB47B873C91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CellularAutomata", "CellularAutomata\CellularAutomata.csproj", "{27600F3D-AE3F-4C63-B9D1-7AB47B873C91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneratorUI", "GeneratorUI\GeneratorUI.csproj", "{CD5D5879-7C56-4B22-BF95-8A1947B6C9EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneratorUI", "GeneratorUI\GeneratorUI.csproj", "{CD5D5879-7C56-4B22-BF95-8A1947B6C9EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Segmentation", "Segmentation\Segmentation.csproj", "{FF67A58F-F559-4401-BC7F-88A0EB6D02F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{CD5D5879-7C56-4B22-BF95-8A1947B6C9EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD5D5879-7C56-4B22-BF95-8A1947B6C9EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD5D5879-7C56-4B22-BF95-8A1947B6C9EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF67A58F-F559-4401-BC7F-88A0EB6D02F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF67A58F-F559-4401-BC7F-88A0EB6D02F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF67A58F-F559-4401-BC7F-88A0EB6D02F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF67A58F-F559-4401-BC7F-88A0EB6D02F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
