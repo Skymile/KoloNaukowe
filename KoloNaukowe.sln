@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.1.32210.238
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTests", "ConsoleTests\ConsoleTests.csproj", "{D9A2CF20-CECA-40EE-8B03-944665558FF8}"
 EndProject
@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneratorUI", "GeneratorUI\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Segmentation", "Segmentation\Segmentation.csproj", "{FF67A58F-F559-4401-BC7F-88A0EB6D02F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmarks", "Benchmarks\Benchmarks.csproj", "{0C8FC4EE-1D24-4EA9-9377-B6B90C85F901}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmarks", "Benchmarks\Benchmarks.csproj", "{0C8FC4EE-1D24-4EA9-9377-B6B90C85F901}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonogameImages", "MonogameImages\MonogameImages.csproj", "{AC0F805F-93B9-4C19-92A1-AC721D586D72}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{0C8FC4EE-1D24-4EA9-9377-B6B90C85F901}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C8FC4EE-1D24-4EA9-9377-B6B90C85F901}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C8FC4EE-1D24-4EA9-9377-B6B90C85F901}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC0F805F-93B9-4C19-92A1-AC721D586D72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC0F805F-93B9-4C19-92A1-AC721D586D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC0F805F-93B9-4C19-92A1-AC721D586D72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC0F805F-93B9-4C19-92A1-AC721D586D72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
