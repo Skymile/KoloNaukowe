@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <StackPanel>
+            <Image Source="{Binding ImgSource}" Height="850" Width="850" Stretch="Fill"/>
+            <Slider Value="{Binding Chunk       }" Minimum="1" Maximum="255"/>
+            <Slider Value="{Binding MatrixWidth }" Minimum="1" Maximum="255" />
+            <Slider Value="{Binding MatrixHeight}" Minimum="1" Maximum="255" />
+        </StackPanel>
     </Grid>
 </Window>
