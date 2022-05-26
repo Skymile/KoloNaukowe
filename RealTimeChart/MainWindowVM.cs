@@ -7,10 +7,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 using RealTimeCharts.Chart;
+using RealTimeCharts.Support;
 
 namespace RealTimeCharts
 {
-	public class MainWindowVM
+    public class MainWindowVM
 	{
 		public MainWindowVM()
 		{
