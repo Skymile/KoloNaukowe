@@ -7,21 +7,6 @@ namespace AsciiWpf
 {
     public static class Algorithm
     {
-        private static byte[] GetMask(int w, int h, byte value, int chunkSize)
-        {
-            int chunk = value / chunkSize;
-            byte[] bytes = new byte[w * h];
-
-            if (chunk > 0)
-                for (int i = 0; i < bytes.Length; i++)
-                    bytes[i] = 
-                        i % chunk == 0
-                            ? byte.MinValue 
-                            : byte.MaxValue;
-
-            return bytes;
-        }
-
         public static Bitmap ApplyAscii(Bitmap bmp,
                 int matrixWidth  = 5,
                 int matrixHeight = 5,
@@ -80,6 +65,21 @@ namespace AsciiWpf
 
             bmp.UnlockBits(data);
             return bmp;
+        }
+
+        private static byte[] GetMask(int w, int h, byte value, int chunkSize)
+        {
+            int chunk = value / chunkSize;
+            byte[] bytes = new byte[w * h];
+
+            if (chunk > 0)
+                for (int i = 0; i < bytes.Length; i++)
+                    bytes[i] = 
+                        i % chunk == 0
+                            ? byte.MinValue 
+                            : byte.MaxValue;
+
+            return bytes;
         }
     }
 }

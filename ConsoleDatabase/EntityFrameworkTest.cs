@@ -1,8 +1,8 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
-// Lazy  (Leniwe    ) Loading 
-// Explicit
-// Eager (Nadgorliwe) Loading
+// Lazy     Loading (Leniwe wczytywanie) 
+// Explicit Loading
+// Eager    Loading (Nadgorliwe wczytywanie)
 
 public static class EntityFrameworkTest
 {

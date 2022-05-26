@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KeystrokeDynamics\KeystrokeDynamics.csproj" />
+    <ProjectReference Include="..\KeystrokeDynamics\Keystroke_Dynamics.csproj" />
   </ItemGroup>
 
 </Project>
