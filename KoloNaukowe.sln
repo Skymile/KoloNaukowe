@@ -29,11 +29,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonogameImages", "MonogameI
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DepInj", "DepInj\DepInj.csproj", "{9C9C610B-1C58-46DC-8148-E700FAB826E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{4DAF73A1-4C1F-42B6-8B7F-86519946B998}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{4DAF73A1-4C1F-42B6-8B7F-86519946B998}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskWpf", "TaskWpf\TaskWpf.csproj", "{F9DC06C0-139A-40D8-970C-A224C73F6BB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskWpf", "TaskWpf\TaskWpf.csproj", "{F9DC06C0-139A-40D8-970C-A224C73F6BB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads", "Threads\Threads.csproj", "{F8434CD3-FA39-4532-96AB-40B6AF9CE3D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Threads", "Threads\Threads.csproj", "{F8434CD3-FA39-4532-96AB-40B6AF9CE3D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleDatabase", "ConsoleDatabase\ConsoleDatabase.csproj", "{572631F8-F3CA-4ACC-BBE1-859DC1DE65E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsciiWpf", "AsciiWpf\AsciiWpf.csproj", "{86A147C5-B27E-45E7-8BAD-424A5F5D958D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +109,14 @@ Global
 		{F8434CD3-FA39-4532-96AB-40B6AF9CE3D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8434CD3-FA39-4532-96AB-40B6AF9CE3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8434CD3-FA39-4532-96AB-40B6AF9CE3D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{572631F8-F3CA-4ACC-BBE1-859DC1DE65E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{572631F8-F3CA-4ACC-BBE1-859DC1DE65E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{572631F8-F3CA-4ACC-BBE1-859DC1DE65E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{572631F8-F3CA-4ACC-BBE1-859DC1DE65E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86A147C5-B27E-45E7-8BAD-424A5F5D958D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86A147C5-B27E-45E7-8BAD-424A5F5D958D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86A147C5-B27E-45E7-8BAD-424A5F5D958D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86A147C5-B27E-45E7-8BAD-424A5F5D958D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
