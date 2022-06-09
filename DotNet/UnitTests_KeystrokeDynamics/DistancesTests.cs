@@ -6,7 +6,7 @@ using NUnit.Framework;
 
 namespace KeystrokeDynamicsTests
 {
-	public class Tests
+    public class Tests
 	{
 		[Test]
 		public void EuclideanTest()
